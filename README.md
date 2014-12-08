@@ -1,7 +1,7 @@
 PinterestSwift
 ==============
 
-***Please Build With Xcode 6.1***
+***Please Build With Xcode 6.1.1***
 
 This is a Swift based demo project to show how to make the transition Pinterest 2.0+ liked.
 
@@ -24,6 +24,8 @@ And this is my copy:
 ##Creator
 
 [Nicholas Tau](http://www.taofengping.com) ([@demonNico](https://twitter.com/demonnico))
+
+I (Rafael Gu) just copy and optimize it, and make it work
 
 ## License
 
