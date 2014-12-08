@@ -9,18 +9,18 @@
 import Foundation
 import UIKit
 
-@objc protocol NTTransitionProtocol{
+@objc protocol NTTransitionProtocol {
     func transitionCollectionView() -> UICollectionView!
 }
 
-@objc protocol NTTansitionWaterfallGridViewProtocol{
+@objc protocol NTTansitionWaterfallGridViewProtocol {
     func snapShotForTransition() -> UIView!
 }
 
-@objc protocol NTWaterFallViewControllerProtocol : NTTransitionProtocol{
+@objc protocol NTWaterFallViewControllerProtocol : NTTransitionProtocol {
     func viewWillAppearWithPageIndex(pageIndex : NSInteger)
 }
 
-@objc protocol NTHorizontalPageViewControllerProtocol : NTTransitionProtocol{
+@objc protocol NTHorizontalPageViewControllerProtocol : NTTransitionProtocol {
     func pageViewCellScrollViewContentOffset() -> CGPoint
 }

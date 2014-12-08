@@ -10,10 +10,11 @@ import UIKit
 
 let waterfallViewCellIdentify = "waterfallViewCellIdentify"
 
-class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate{
+class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate {
     func navigationController(navigationController: UINavigationController!, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController!, toViewController toVC: UIViewController!) -> UIViewControllerAnimatedTransitioning!{
         let transition = NTTransition()
         transition.presenting = operation == .Pop
+        
         return  transition
     }
 }
@@ -35,12 +36,11 @@ class NTWaterfallViewController:UICollectionViewController,CHTCollectionViewDele
             index++
         }
         
-        collectionView.frame = screenBounds
-        collectionView.setCollectionViewLayout(CHTCollectionViewWaterfallLayout(), animated: false)
-        collectionView.backgroundColor = UIColor.grayColor()
-        collectionView.registerClass(NTWaterfallViewCell.self, forCellWithReuseIdentifier: waterfallViewCellIdentify)
-        collectionView.reloadData()
-
+        collectionView!.frame = screenBounds
+        collectionView!.setCollectionViewLayout(CHTCollectionViewWaterfallLayout(), animated: false)
+        collectionView!.backgroundColor = UIColor.grayColor()
+        collectionView!.registerClass(NTWaterfallViewCell.self, forCellWithReuseIdentifier: waterfallViewCellIdentify)
+        collectionView!.reloadData()
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize{
@@ -88,11 +88,11 @@ class NTWaterfallViewController:UICollectionViewController,CHTCollectionViewDele
            position = .Top
         }
         let currentIndexPath = NSIndexPath(forRow: pageIndex, inSection: 0)
-        collectionView.setToIndexPath(currentIndexPath)
-        if pageIndex<2{
-            collectionView.setContentOffset(CGPointZero, animated: false)
+        collectionView!.setToIndexPath(currentIndexPath)
+        if pageIndex < 2 {
+            collectionView!.setContentOffset(CGPointZero, animated: false)
         }else{
-            collectionView.scrollToItemAtIndexPath(currentIndexPath, atScrollPosition: position, animated: false)
+            collectionView!.scrollToItemAtIndexPath(currentIndexPath, atScrollPosition: position, animated: false)
         }
     }
     

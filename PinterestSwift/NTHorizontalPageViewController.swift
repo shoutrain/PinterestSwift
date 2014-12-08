@@ -11,19 +11,20 @@ import UIKit
 
 let horizontalPageViewCellIdentify = "horizontalPageViewCellIdentify"
 
-class NTHorizontalPageViewController : UICollectionViewController, NTTransitionProtocol ,NTHorizontalPageViewControllerProtocol{
+class NTHorizontalPageViewController : UICollectionViewController, NTTransitionProtocol ,NTHorizontalPageViewControllerProtocol {
     
     var imageNameList : Array <NSString> = []
     var pullOffset = CGPointZero
     
     init(collectionViewLayout layout: UICollectionViewLayout!, currentIndexPath indexPath: NSIndexPath){
         super.init(collectionViewLayout:layout)
-        self.collectionView.pagingEnabled = true
-        self.collectionView.registerClass(NTHorizontalPageViewCell.self, forCellWithReuseIdentifier: horizontalPageViewCellIdentify)
-        collectionView.setToIndexPath(indexPath)
-        self.collectionView.performBatchUpdates({self.collectionView.reloadData()}, completion: { finished in
+        self.collectionView!.pagingEnabled = true
+        self.collectionView!.registerClass(NTHorizontalPageViewCell.self, forCellWithReuseIdentifier: horizontalPageViewCellIdentify)
+        self.collectionView!.setToIndexPath(indexPath)
+        
+        self.collectionView!.performBatchUpdates({self.collectionView!.reloadData()}, completion: { finished in
             if finished {
-                self.collectionView.scrollToItemAtIndexPath(indexPath,atScrollPosition:.CenteredHorizontally, animated: false)
+                self.collectionView!.scrollToItemAtIndexPath(indexPath,atScrollPosition:.CenteredHorizontally, animated: false)
             }});
     }
 

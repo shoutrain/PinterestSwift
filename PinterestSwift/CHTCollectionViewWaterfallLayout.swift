@@ -9,31 +9,31 @@
 import Foundation
 import UIKit
 
-@objc protocol CHTCollectionViewDelegateWaterfallLayout: UICollectionViewDelegate{
+@objc protocol CHTCollectionViewDelegateWaterfallLayout: UICollectionViewDelegate {
     
-    func collectionView (collectionView: UICollectionView,layout collectionViewLayout: UICollectionViewLayout,
+    func collectionView(collectionView: UICollectionView,layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize
     
-    optional func colletionView (collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
+    optional func colletionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
         heightForHeaderInSection section: NSInteger) -> CGFloat
     
-    optional func colletionView (collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
+    optional func colletionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
         heightForFooterInSection section: NSInteger) -> CGFloat
     
-    optional func colletionView (collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
+    optional func colletionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
         insetForSectionAtIndex section: NSInteger) -> UIEdgeInsets
     
-    optional func colletionView (collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
+    optional func colletionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
         minimumInteritemSpacingForSectionAtIndex section: NSInteger) -> CGFloat
 }
 
-enum CHTCollectionViewWaterfallLayoutItemRenderDirection : NSInteger{
+enum CHTCollectionViewWaterfallLayoutItemRenderDirection : NSInteger {
     case CHTCollectionViewWaterfallLayoutItemRenderDirectionShortestFirst
     case CHTCollectionViewWaterfallLayoutItemRenderDirectionLeftToRight
     case CHTCollectionViewWaterfallLayoutItemRenderDirectionRightToLeft
 }
 
-class CHTCollectionViewWaterfallLayout : UICollectionViewLayout{
+class CHTCollectionViewWaterfallLayout : UICollectionViewLayout {
     let CHTCollectionElementKindSectionHeader = "CHTCollectionElementKindSectionHeader"
     let CHTCollectionElementKindSectionFooter = "CHTCollectionElementKindSectionFooter"
     

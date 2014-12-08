@@ -10,12 +10,12 @@ import Foundation
 import UIKit
 
 let animationDuration = 0.35
-let animationScale = screenWidth/gridWidth // screenWidth / the width of waterfall collection view's grid
+let animationScale = screenWidth / gridWidth // screenWidth / the width of waterfall collection view's grid
 
-class NTTransition : NSObject , UIViewControllerAnimatedTransitioning{
+class NTTransition : NSObject , UIViewControllerAnimatedTransitioning {
     var presenting = false
     
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval{
+    func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
         return animationDuration
     }
     
