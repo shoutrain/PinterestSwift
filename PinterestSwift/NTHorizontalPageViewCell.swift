@@ -2,58 +2,35 @@
 //  NTHorizontalPageViewCell.swift
 //  PinterestSwift
 //
-//  Created by Nicholas Tau on 7/1/14.
-//  Copyright (c) 2014 Nicholas Tau. All rights reserved.
-//
 
 import Foundation
 import UIKit
 
 let cellIdentify = "cellIdentify"
 
-class NTTableViewCell : UITableViewCell{
-    
-    override init(style: UITableViewCellStyle, reuseIdentifier: String!) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.textLabel!.font = UIFont.systemFontOfSize(13)
-    }
+class NTHorizontalPageViewCell: UICollectionViewCell, UITableViewDelegate, UITableViewDataSource {
+    var imageName: String?
+    var pullAction: ((offset: CGPoint) -> Void)?
+    var tappedAction: (() -> Void)?
+    let tableView = UITableView(frame: screenBounds, style: UITableViewStyle.Plain)
     
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        self.imageView!.frame = CGRectZero
-        
-        if (self.imageView!.image != nil) {
-            let imageHeight = self.imageView!.image!.size.height * screenWidth / self.imageView!.image!.size.width
-            self.imageView!.frame = CGRectMake(0, 0, screenWidth, imageHeight)
-        }
-    }
-}
-
-class NTHorizontalPageViewCell : UICollectionViewCell, UITableViewDelegate, UITableViewDataSource{
-    var imageName : String?
-    var pullAction : ((offset : CGPoint) -> Void)?
-    var tappedAction : (() -> Void)?
-    let tableView = UITableView(frame: screenBounds, style: UITableViewStyle.Plain)
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor.lightGrayColor()
         
+        backgroundColor = UIColor.lightGrayColor()
         contentView.addSubview(tableView)
         tableView.registerClass(NTTableViewCell.self, forCellReuseIdentifier: cellIdentify)
         tableView.delegate = self
         tableView.dataSource = self
     }
     
-    required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     override func layoutSubviews() {
         super.layoutSubviews()
+        
         tableView.reloadData()
     }
     
@@ -71,7 +48,7 @@ class NTHorizontalPageViewCell : UICollectionViewCell, UITableViewDelegate, UITa
             let image = UIImage(named: imageName!)
             
             cell.imageView!.image = image
-        }else{
+        } else {
             cell.textLabel!.text = "try pull to pop view controller 😃"
         }
         
@@ -81,11 +58,12 @@ class NTHorizontalPageViewCell : UICollectionViewCell, UITableViewDelegate, UITa
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        var cellHeight : CGFloat = navigationHeight
+        var cellHeight: CGFloat = navigationHeight
         
         if indexPath.row == 0 {
             let image:UIImage! = UIImage(named: imageName!)
-            let imageHeight = image.size.height*screenWidth/image.size.width
+            let imageHeight = image.size.height*screenWidth / image.size.width
+            
             cellHeight = imageHeight
         }
         

@@ -2,14 +2,11 @@
 //  NTNavigationController.swift
 //  PinterestSwift
 //
-//  Created by Nicholas Tau on 7/2/14.
-//  Copyright (c) 2014 Nicholas Tau. All rights reserved.
-//
 
 import Foundation
 import UIKit
 
-class NTNavigationController : UINavigationController {
+class NTNavigationController: UINavigationController {
 
     override func pushViewController(viewController: UIViewController, animated: Bool) {
         let childrenCount = self.viewControllers.count
@@ -24,7 +21,6 @@ class NTNavigationController : UINavigationController {
     }
     
     override func popViewControllerAnimated(animated: Bool) -> UIViewController {
-        //viewWillAppearWithPageIndex
         let childrenCount = self.viewControllers.count
         let toViewController = self.viewControllers[childrenCount - 2] as NTWaterFallViewControllerProtocol
         let toView = toViewController.transitionCollectionView()
@@ -37,6 +33,4 @@ class NTNavigationController : UINavigationController {
         
         return super.popViewControllerAnimated(animated)!
     }
-    
-
 }

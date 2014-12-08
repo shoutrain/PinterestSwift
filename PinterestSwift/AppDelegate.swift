@@ -2,9 +2,6 @@
 //  AppDelegate.swift
 //  PinterestSwift
 //
-//  Created by Nicholas Tau on 6/30/14.
-//  Copyright (c) 2014 Nicholas Tau. All rights reserved.
-//
 
 import UIKit
 
@@ -18,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
 //        var navigationContorller = self.window?.rootViewController as UINavigationController
 //        navigationContorller.setNavigationBarHidden(true, animated: false)
+        
         return true
     }
 

@@ -2,17 +2,15 @@
 //  NTTransition.swift
 //  PinterestSwift
 //
-//  Created by Nicholas Tau on 7/2/14.
-//  Copyright (c) 2014 Nicholas Tau. All rights reserved.
-//
 
 import Foundation
 import UIKit
 
-let animationDuration = 0.35
-let animationScale = screenWidth / gridWidth // screenWidth / the width of waterfall collection view's grid
+let animationDuration = 0.75
+// screenWidth / the width of waterfall collection view's grid
+let animationScale = screenWidth / gridWidth
 
-class NTTransition : NSObject , UIViewControllerAnimatedTransitioning {
+class NTTransition: NSObject, UIViewControllerAnimatedTransitioning {
     var presenting = false
     
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
@@ -26,6 +24,7 @@ class NTTransition : NSObject , UIViewControllerAnimatedTransitioning {
 
         if presenting {
             let toView = toViewController.view
+            
             containerView.addSubview(toView)
             toView.hidden = true
             
